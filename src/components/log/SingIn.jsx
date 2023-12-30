@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { ReadData } from "../../apifirebase";
 
 function SingIn() {
+  const yoy = () => {
+    console.log(ReadData(1));
+  };
+
   const [formData, setFormData] = useState({
     userName: "",
     password: "",
@@ -40,7 +45,7 @@ function SingIn() {
           onChange={handleChange}
         />
 
-        <button type="submit" className="log-submit">
+        <button type="submit" className="log-submit" onClick={() => yoy()}>
           Start Chatting
         </button>
       </form>

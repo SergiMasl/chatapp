@@ -1,0 +1,26 @@
+[
+    {
+      "userId":"1",
+      "userName":"user1",
+      "name":"Alex Smith",
+      "isOnline":false,
+      "avatar":"",
+      "newMessage":true
+    },
+    {
+      "userId":"2",
+      "userName":"user2",
+      "name":"Jess Antonio",
+      "isOnline":true,
+      "avatar":"",
+      "newMessage": false
+    },
+    {
+      "userId":"3",
+      "userName":"user3",
+      "name":"Kim Pak",
+      "isOnline":true,
+      "avatar":"",
+      "newMessage":true
+    }
+  ]

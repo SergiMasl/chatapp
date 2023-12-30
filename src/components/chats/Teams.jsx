@@ -26,7 +26,7 @@ function Teams() {
     <div className="teams-wrap">
       <ul>
         {teams.map((team) => (
-          <li>
+          <li key={team.id}>
             <a>
               <h3>{team.title}</h3>
               <div>
