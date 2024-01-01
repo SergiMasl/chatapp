@@ -2,9 +2,9 @@ import { useState } from "react";
 import { ReadData } from "../../apifirebase";
 
 function SingIn() {
-  const yoy = () => {
-    console.log(ReadData(1));
-  };
+  // const yoy = () => {
+  //   console.log(ReadData(1));
+  // };
 
   const [formData, setFormData] = useState({
     userName: "",
@@ -12,11 +12,11 @@ function SingIn() {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    // const { name, value } = e.target;
+    // setFormData((prevData) => ({
+    //   ...prevData,
+    //   [name]: value,
+    // }));
   };
 
   const handleSubmit = (e) => {
@@ -45,7 +45,7 @@ function SingIn() {
           onChange={handleChange}
         />
 
-        <button type="submit" className="log-submit" onClick={() => yoy()}>
+        <button type="submit" className="log-submit">
           Start Chatting
         </button>
       </form>

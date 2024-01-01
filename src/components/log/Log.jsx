@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SingIn from "./SingIn";
 import SingUp from "./SingUp";
+import "../../styles//compStyles/_start.sass";
 
 function Log() {
   const [isSingIn, setIsSingIn] = useState("true");

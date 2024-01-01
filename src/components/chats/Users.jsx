@@ -1,9 +1,14 @@
 import userFriends from "../../temp/userFriends.json";
 
-function Users({ setCurrentUserReading }) {
+function Users({ setCurrentUserReading, setCurrentUser }) {
   // const userMassageImail = [
   //   { massageId: "1", fromUser: "user2", toUser: "user1", text: "hello" },
   // ];
+
+  const setCurrentReadingUser = (user) => {
+    setCurrentUserReading(user.userName);
+    setCurrentUser(user.name);
+  };
 
   return (
     <div className="users-wrap">
@@ -12,7 +17,7 @@ function Users({ setCurrentUserReading }) {
       {userFriends.map((user) => (
         <div
           className={`user-container ${user.newMessage && "user-newmessage"}`}
-          onClick={() => setCurrentUserReading(user.userName)}
+          onClick={() => setCurrentReadingUser(user)}
           key={user.userId}
         >
           <img src={user.avatar} alt="img" className="user-img"></img>
