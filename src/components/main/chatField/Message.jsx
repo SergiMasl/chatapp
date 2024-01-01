@@ -2,7 +2,7 @@ import React from "react";
 
 function Message() {
   return (
-    <div className="message">
+    <div className="message owner">
       <div className="message-info">
         <img src="" alt="img" className="message-user-img" />
         <span className="message-time">just now</span>

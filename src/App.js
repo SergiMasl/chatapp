@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-      {/* <Log /> */}
-      <Home />
+      <Log />
+      {/* <Home /> */}
     </>
   );
 }

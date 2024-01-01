@@ -19,6 +19,7 @@
                 height: 40px
                 border-radius: 50%
                 object-fit: cover
+                background-color: #bbb
             .message-time
 
         .message-content
@@ -34,3 +35,15 @@
                 max-width: max-content
             .message-img
                 width: 50%
+                border-radius: 0
+                margin: 0
+                object-fit: cover
+        &.owner
+            flex-direction: row-reverse
+
+            .message-content
+                align-items: flex-end
+                .message-img
+                    background-color: #8da4f1
+                    color: white
+                    border-radius: 10px 0px 10px 10px
