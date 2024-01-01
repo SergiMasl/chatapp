@@ -1,53 +1,35 @@
-import { useState } from "react";
-// import { ReadData } from "../../apifirebase";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 function SingIn() {
-  // const yoy = () => {
-  //   console.log(ReadData(1));
-  // };
+  const [err, setErr] = useState(false);
+  const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    userName: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    // const { name, value } = e.target;
-    // setFormData((prevData) => ({
-    //   ...prevData,
-    //   [name]: value,
-    // }));
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/");
+    } catch (err) {
+      setErr(true);
+    }
   };
 
   return (
     <div className="singIn-wrap">
       <form onSubmit={handleSubmit} className="log-form">
-        <input
-          className="log-input"
-          type="text"
-          name="userName"
-          placeholder="Username"
-          value={formData.userName}
-          onChange={handleChange}
-        />
-
-        <input
-          className="log-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+        <input className="log-input" type="text" placeholder="Username" />
+        <input className="log-input" type="password" placeholder="Password" />
 
         <button type="submit" className="log-submit">
           Start Chatting
         </button>
+        {err && <span>Something went wrong</span>}
       </form>
     </div>
   );
