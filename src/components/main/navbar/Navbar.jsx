@@ -1,4 +1,6 @@
 import "../../../styles/compStyles/__navbar.sass";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebase";
 
 function Navbar() {
   return (
@@ -7,7 +9,9 @@ function Navbar() {
         <img src="" alt="img" className="user-img" />
         <span className="user-name">John</span>
       </div>
-      <button className="user-out">logout</button>
+      <button className="user-out" onClick={() => signOut(auth)}>
+        logout
+      </button>
     </div>
   );
 }

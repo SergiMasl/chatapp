@@ -1,18 +1,39 @@
 import "./App.css";
 import Log from "./components/log/Log";
 import Home from "./components/Home";
-import { writeUserData, ReadData, singUp } from "./apifirebase";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  //writeUserData("2", "Alex A", "fgsfsdgsdg@gmail.com", "");
-  // ReadData(1);
-  // singUp("fdfdfdf222222@gmail.com", "fdsfsd");
+  const { currentUser } = useContext(AuthContext);
+
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/log" />;
+    }
+    return children;
+  };
 
   return (
-    <>
-      <Log />
-      {/* <Home /> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route
+            index
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="log" element={<Log />} />
+
+          {/* <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} /> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

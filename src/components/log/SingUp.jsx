@@ -5,22 +5,11 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate, Link } from "react-router-dom";
 
 function SingUp() {
   const [err, setErr] = useState(false);
-  // const [formData, setFormData] = useState({
-  //   userName: "",
-  //   password: "",
-  //   name: "",
-  // });
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
